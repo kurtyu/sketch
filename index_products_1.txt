@@ -1,0 +1,60 @@
+index_products_1.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+09
+  rotate: false
+  xy: 1018, 904
+  size: 507, 900
+  orig: 507, 900
+  offset: 0, 0
+  index: -1
+10
+  rotate: false
+  xy: 1527, 904
+  size: 507, 900
+  orig: 507, 900
+  offset: 0, 0
+  index: -1
+01
+  rotate: false
+  xy: 2, 2
+  size: 506, 900
+  orig: 506, 900
+  offset: 0, 0
+  index: -1
+02
+  rotate: false
+  xy: 510, 2
+  size: 506, 900
+  orig: 506, 900
+  offset: 0, 0
+  index: -1
+03
+  rotate: false
+  xy: 1018, 2
+  size: 506, 900
+  orig: 506, 900
+  offset: 0, 0
+  index: -1
+04
+  rotate: false
+  xy: 1526, 2
+  size: 506, 900
+  orig: 506, 900
+  offset: 0, 0
+  index: -1
+07
+  rotate: false
+  xy: 2, 904
+  size: 506, 900
+  orig: 506, 900
+  offset: 0, 0
+  index: -1
+08
+  rotate: false
+  xy: 510, 904
+  size: 506, 900
+  orig: 506, 900
+  offset: 0, 0
+  index: -1

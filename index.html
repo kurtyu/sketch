@@ -1,12 +1,1863 @@
+<!doctype html>
 <html>
-  <head>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
-    <script src="utils.js"></script>
-    <script src="sketch.js"></script>
-    <script src="app.js"></script>
-  </head>
-  <body>
-    <main>
-    </main>
-  </body>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>Projects</title><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid-page; break-before: avoid-page; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid-page; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+/* Flowchart variables */
+/* Sequence Diagram variables */
+/* Gantt chart variables */
+/* state colors */
+.label {
+  
+  color: #333; }
+
+.label text {
+  fill: #333; }
+
+.node rect,
+.node circle,
+.node ellipse,
+.node polygon {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1px; }
+
+.node .label {
+  text-align: center; }
+
+.node.clickable {
+  cursor: pointer; }
+
+.arrowheadPath {
+  fill: lightgrey; }
+
+.edgePath .path {
+  stroke: lightgrey;
+  stroke-width: 1.5px; }
+
+.edgeLabel {
+  background-color: #e8e8e8;
+  text-align: center; }
+
+.cluster rect {
+  fill: #6D6D65;
+  stroke: rgba(255, 255, 255, 0.25);
+  stroke-width: 1px; }
+
+.cluster text {
+  fill: #F9FFFE; }
+
+div.mermaidTooltip {
+  position: absolute;
+  text-align: center;
+  max-width: 200px;
+  padding: 2px;
+  
+  font-size: 12px;
+  background: #6D6D65;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 100; }
+
+.actor {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+text.actor {
+  fill: black;
+  stroke: none; }
+
+.actor-line {
+  stroke: lightgrey; }
+
+.messageLine0 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+.messageLine1 {
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+  stroke: lightgrey; }
+
+#arrowhead {
+  fill: lightgrey; }
+
+.sequenceNumber {
+  fill: white; }
+
+#sequencenumber {
+  fill: lightgrey; }
+
+#crosshead path {
+  fill: lightgrey !important;
+  stroke: lightgrey !important; }
+
+.messageText {
+  fill: lightgrey;
+  stroke: none; }
+
+.labelBox {
+  stroke: #81B1DB;
+  fill: #BDD5EA; }
+
+.labelText {
+  fill: #323D47;
+  stroke: none; }
+
+.loopText {
+  fill: lightgrey;
+  stroke: none; }
+
+.loopLine {
+  stroke-width: 2;
+  stroke-dasharray: '2 2';
+  stroke: #81B1DB; }
+
+.note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+
+.noteText {
+  fill: black;
+  stroke: none;
+  
+  font-size: 14px; }
+
+.activation0 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+.activation1 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+.activation2 {
+  fill: #f4f4f4;
+  stroke: #666; }
+
+/** Section styling */
+.section {
+  stroke: none;
+  opacity: 0.2; }
+
+.section0 {
+  fill: rgba(255, 255, 255, 0.3); }
+
+.section2 {
+  fill: #EAE8B9; }
+
+.section1,
+.section3 {
+  fill: white;
+  opacity: 0.2; }
+
+.sectionTitle0 {
+  fill: #F9FFFE; }
+
+.sectionTitle1 {
+  fill: #F9FFFE; }
+
+.sectionTitle2 {
+  fill: #F9FFFE; }
+
+.sectionTitle3 {
+  fill: #F9FFFE; }
+
+.sectionTitle {
+  text-anchor: start;
+  font-size: 11px;
+  text-height: 14px;
+   }
+
+/* Grid and axis */
+.grid .tick {
+  stroke: lightgrey;
+  opacity: 0.3;
+  shape-rendering: crispEdges; }
+
+.grid path {
+  stroke-width: 0; }
+
+/* Today line */
+.today {
+  fill: none;
+  stroke: #DB5757;
+  stroke-width: 2px; }
+
+/* Task styling */
+/* Default task */
+.task {
+  stroke-width: 2; }
+
+.taskText {
+  text-anchor: middle;
+   }
+
+.taskText:not([font-size]) {
+  font-size: 11px; }
+
+.taskTextOutsideRight {
+  fill: #323D47;
+  text-anchor: start;
+  font-size: 11px;
+   }
+
+.taskTextOutsideLeft {
+  fill: #323D47;
+  text-anchor: end;
+  font-size: 11px; }
+
+/* Special case clickable */
+.task.clickable {
+  cursor: pointer; }
+
+.taskText.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+.taskTextOutsideLeft.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+.taskTextOutsideRight.clickable {
+  cursor: pointer;
+  fill: #003163 !important;
+  font-weight: bold; }
+
+/* Specific task settings for the sections*/
+.taskText0,
+.taskText1,
+.taskText2,
+.taskText3 {
+  fill: #323D47; }
+
+.task0,
+.task1,
+.task2,
+.task3 {
+  fill: #BDD5EA;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.taskTextOutside0,
+.taskTextOutside2 {
+  fill: lightgrey; }
+
+.taskTextOutside1,
+.taskTextOutside3 {
+  fill: lightgrey; }
+
+/* Active task */
+.active0,
+.active1,
+.active2,
+.active3 {
+  fill: #81B1DB;
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.activeText0,
+.activeText1,
+.activeText2,
+.activeText3 {
+  fill: #323D47 !important; }
+
+/* Completed task */
+.done0,
+.done1,
+.done2,
+.done3 {
+  stroke: grey;
+  fill: lightgrey;
+  stroke-width: 2; }
+
+.doneText0,
+.doneText1,
+.doneText2,
+.doneText3 {
+  fill: #323D47 !important; }
+
+/* Tasks on the critical line */
+.crit0,
+.crit1,
+.crit2,
+.crit3 {
+  stroke: #E83737;
+  fill: #E83737;
+  stroke-width: 2; }
+
+.activeCrit0,
+.activeCrit1,
+.activeCrit2,
+.activeCrit3 {
+  stroke: #E83737;
+  fill: #81B1DB;
+  stroke-width: 2; }
+
+.doneCrit0,
+.doneCrit1,
+.doneCrit2,
+.doneCrit3 {
+  stroke: #E83737;
+  fill: lightgrey;
+  stroke-width: 2;
+  cursor: pointer;
+  shape-rendering: crispEdges; }
+
+.milestone {
+  transform: rotate(45deg) scale(0.8, 0.8); }
+
+.milestoneText {
+  font-style: italic; }
+
+.doneCritText0,
+.doneCritText1,
+.doneCritText2,
+.doneCritText3 {
+  fill: #323D47 !important; }
+
+.activeCritText0,
+.activeCritText1,
+.activeCritText2,
+.activeCritText3 {
+  fill: #323D47 !important; }
+
+.titleText {
+  text-anchor: middle;
+  font-size: 18px;
+  fill: #323D47;
+   }
+
+g.classGroup text {
+  fill: #9370DB;
+  stroke: none;
+  
+  font-size: 10px; }
+  g.classGroup text .title {
+    font-weight: bolder; }
+
+g.classGroup rect {
+  fill: #BDD5EA;
+  stroke: #9370DB; }
+
+g.classGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.classLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+.classLabel .label {
+  fill: #9370DB;
+  font-size: 10px; }
+
+.relation {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+#compositionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#compositionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#aggregationStart {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#aggregationEnd {
+  fill: #BDD5EA;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#dependencyStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#dependencyEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#extensionStart {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+#extensionEnd {
+  fill: #9370DB;
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.commit-id,
+.commit-msg,
+.branch-label {
+  fill: lightgrey;
+  color: lightgrey;
+   }
+
+.pieTitleText {
+  text-anchor: middle;
+  font-size: 25px;
+  fill: #eee;
+}
+
+g.stateGroup text {
+  stroke: none;
+  font-size: 10px;
+}
+
+g.stateGroup circle {
+  fill: white !important;
+  stroke: white !important;
+}
+
+g.stateGroup .state-title {
+  font-weight: bolder;
+  fill: black; }
+
+g.stateGroup rect {
+  fill: #ececff;
+  stroke: #9370DB; }
+
+g.stateGroup line {
+  stroke: #9370DB;
+  stroke-width: 1; }
+
+.transition {
+  stroke: #9370DB;
+  stroke-width: 1;
+  fill: none; }
+
+.stateGroup .composit {
+  fill: #555;
+  border-bottom: 1px; }
+
+.state-note {
+  stroke: rgba(255, 255, 255, 0.25);
+  fill: #fff5ad; }
+  .state-note text {
+    fill: black;
+    stroke: none;
+    font-size: 10px; }
+
+.stateLabel .box {
+  stroke: none;
+  stroke-width: 0;
+  fill: #BDD5EA;
+  opacity: 0.5; }
+
+.stateLabel text {
+  fill: black;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.cluster-label {
+  color:black;
+}
+
+.statediagram-cluster rect {
+  fill: #BDD5EA;
+  stroke: #9370DB; 
+  stroke-width: 1px;
+}
+.statediagram-cluster rect.outer {
+  rx: 5px;
+  ry: 5px;
+}
+.statediagram-state .divider {
+  stroke: #9370DB; 
+}
+
+.statediagram-state .title-state {
+  rx: 5px;
+  ry: 5px;
+}
+.statediagram-cluster.statediagram-cluster .inner {
+  fill: white;
+}
+.statediagram-cluster.statediagram-cluster-alt .inner {
+  fill: #e0e0e0;
+}
+
+.statediagram-cluster .inner {
+  rx:0;
+  ry:0;
+}
+
+.statediagram-state rect.basic {
+  rx: 5px;
+  ry: 5px;
+}
+.statediagram-state rect.divider {
+  stroke-dasharray: 10,10;
+  fill: #efefef;
+}
+
+.note-edge {
+  stroke-dasharray: 5;
+}
+
+.statediagram-note rect {
+  stroke: var(--cluster-border);
+  fill: #fff5ad;
+  stroke-width: 1px;
+  rx: 0;
+  ry: 0;
+}
+
+.node circle.state-start {
+  fill: black;
+  stroke: black;
+}
+.node circle.state-end {
+  fill: black;
+  stroke: white;
+  stroke-width: 1.5
+}
+#statediagram-barbEnd {
+  fill: #9370DB; 
+}
+
+/* CSS Document */
+
+/** code highlight */
+
+.cm-s-inner .cm-variable,
+.cm-s-inner .cm-operator,
+.cm-s-inner .cm-property {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-keyword {
+    color: #C88FD0;
+}
+
+.cm-s-inner .cm-tag {
+    color: #7DF46A;
+}
+
+.cm-s-inner .cm-attribute {
+    color: #7575E4;
+}
+
+.CodeMirror div.CodeMirror-cursor {
+    border-left: 1px solid #b8bfc6;
+    z-index: 3;
+}
+
+.cm-s-inner .cm-string {
+    color: #D26B6B;
+}
+
+.cm-s-inner .cm-comment,
+.cm-s-inner.cm-comment {
+    color: #DA924A;
+}
+
+.cm-s-inner .cm-header,
+.cm-s-inner .cm-def,
+.cm-s-inner.cm-header,
+.cm-s-inner.cm-def {
+    color: #8d8df0;
+}
+
+.cm-s-inner .cm-quote,
+.cm-s-inner.cm-quote {
+    color: #57ac57;
+}
+
+.cm-s-inner .cm-hr {
+    color: #d8d5d5;
+}
+
+.cm-s-inner .cm-link {
+    color: #d3d3ef;
+}
+
+.cm-s-inner .cm-negative {
+    color: #d95050;
+}
+
+.cm-s-inner .cm-positive {
+    color: #50e650;
+}
+
+.cm-s-inner .cm-string-2 {
+    color: #f50;
+}
+
+.cm-s-inner .cm-meta,
+.cm-s-inner .cm-qualifier {
+    color: #b7b3b3;
+}
+
+.cm-s-inner .cm-builtin {
+    color: #f3b3f8;
+}
+
+.cm-s-inner .cm-bracket {
+    color: #997;
+}
+
+.cm-s-inner .cm-atom,
+.cm-s-inner.cm-atom {
+    color: #84B6CB;
+}
+
+.cm-s-inner .cm-number {
+    color: #64AB8F;
+}
+
+.cm-s-inner .cm-variable {
+    color: #b8bfc6;
+}
+
+.cm-s-inner .cm-variable-2 {
+    color: #9FBAD5;
+}
+
+.cm-s-inner .cm-variable-3 {
+    color: #1cc685;
+}
+
+.CodeMirror-selectedtext,
+.CodeMirror-selected {
+    background: #4a89dc;
+    color: #fff !important;
+    text-shadow: none;
+}
+
+.CodeMirror-gutters {
+    border-right: none;
+}
+
+/* CSS Document */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header, 
+.cm-s-typora-default .cm-property
+{
+    color: #cebcca;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor{
+    border-left: 3px solid #b8bfc6;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #9FB1FF;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #A7A7D9
+}
+
+.cm-s-typora-default .cm-atom, .cm-s-typora-default .cm-number {
+    color: #848695;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #95B94B;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(51, 51, 51, 0.72);
+}
+
+.cm-s-typora-default .cm-comment, .cm-s-typora-default .cm-code {
+	color: #8aa1e1;
+}@import "";
+@import "";
+@import "";
+
+:root {
+    --bg-color:  #363B40;
+    --side-bar-bg-color: #2E3033;
+    --text-color: #b8bfc6;
+
+    --select-text-bg-color:#4a89dc;
+
+    --item-hover-bg-color: #0a0d16;
+    --control-text-color: #b7b7b7;
+    --control-text-hover-color: #eee;
+    --window-border: 1px solid #555;
+
+    --active-file-bg-color: rgb(34, 34, 34);
+    --active-file-border-color: #8d8df0;
+
+    --primary-color: #a3d5fe;
+
+    --active-file-text-color: white;
+    --item-hover-bg-color: #70717d;
+    --item-hover-text-color: white;
+    --primary-color: #6dc1e7;
+
+    --rawblock-edit-panel-bd: #333;
+
+    --search-select-bg-color: #428bca;
+}
+
+html {
+    font-size: 16px;
+}
+
+html,
+body {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    background: #363B40;
+    background: var(--bg-color);
+    fill: currentColor;
+    line-height: 1.625rem;
+}
+
+#write {
+    max-width: 914px;
+}
+
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+div.code-tooltip-content {
+    color: #b8bfc6;
+    border-color: transparent;
+}
+
+div.code-tooltip,
+.md-hover-tip .md-arrow:after {
+    background: #333;
+}
+
+.popover.bottom > .arrow:after {
+    border-bottom-color: #333;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+hr {
+    height: 2px;
+    border: 0;
+    margin: 24px 0 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Lucida Grande", "Corbel", sans-serif;
+    font-weight: normal;
+    clear: both;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+    margin: 0;
+    padding: 0;
+    color: #DEDEDE
+}
+
+h1 {
+    font-size: 2.5rem;
+    /* 36px */
+    line-height: 2.75rem;
+    /* 40px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1.5px;
+}
+
+h2 {
+    font-size: 1.63rem;
+    /* 24px */
+    line-height: 1.875rem;
+    /* 30px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.17rem;
+    /* 18px */
+    line-height: 1.5rem;
+    /* 24px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+h4 {
+    font-size: 1.12rem;
+    /* 16px */
+    line-height: 1.375rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    color: white;
+}
+
+h5 {
+    font-size: 0.97rem;
+    /* 16px */
+    line-height: 1.25rem;
+    /* 22px */
+    margin-bottom: 1.5rem;
+    /* 24px */
+    font-weight: bold;
+}
+
+h6 {
+    font-size: 0.93rem;
+    /* 16px */
+    line-height: 1rem;
+    /* 16px */
+    margin-bottom: 0.75rem;
+    color: white;
+}
+
+@media (min-width: 980px) {
+    h3.md-focus:before,
+    h4.md-focus:before,
+    h5.md-focus:before,
+    h6.md-focus:before {
+        color: #ddd;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        position: absolute;
+        left: -1.642857143rem;
+        top: .357142857rem;
+        float: left;
+        font-size: 9px;
+        padding-left: 2px;
+        padding-right: 2px;
+        vertical-align: bottom;
+        font-weight: normal;
+        line-height: normal;
+    }
+
+    h3.md-focus:before {
+        content: 'h3';
+    }
+
+    h4.md-focus:before {
+        content: 'h4';
+    }
+
+    h5.md-focus:before {
+        content: 'h5';
+        top: 0px;
+    }
+
+    h6.md-focus:before {
+        content: 'h6';
+        top: 0px;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: 0;
+}
+
+a:hover {
+    outline: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+sup.md-footnote {
+    background-color: #555;
+    color: #ddd;
+}
+
+p {
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+p,
+ul,
+dd,
+ol,
+hr,
+address,
+pre,
+table,
+iframe,
+.wp-caption,
+.wp-audio-shortcode,
+.wp-video-shortcode {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    /* 24px */
+}
+
+li > blockquote {
+	margin-bottom: 0;
+}
+
+audio:not([controls]) {
+    display: none;
+}
+
+[hidden] {
+    display: none;
+}
+
+::-moz-selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+*.in-text-selection,
+::selection {
+    background: #4a89dc;
+    color: #fff;
+    text-shadow: none;
+}
+
+ul,
+ol {
+    padding: 0 0 0 1.875rem;
+    /* 30px */
+}
+
+ul {
+    list-style: square;
+}
+
+ol {
+    list-style: decimal;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+    margin: 0;
+}
+
+b,
+th,
+dt,
+strong {
+    font-weight: bold;
+}
+
+i,
+em,
+dfn,
+cite {
+    font-style: italic;
+}
+
+blockquote {
+    padding-left: 1.875rem;
+    margin: 0 0 1.875rem 1.875rem;
+    border-left: solid 2px #474d54;
+    padding-left: 30px;
+    margin-top: 35px;
+}
+
+pre,
+code,
+kbd,
+tt,
+var {
+    font-size: 0.875rem;
+    font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+code,
+tt,
+var {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+kbd {
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #fff;
+    background-color: #333;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+}
+
+pre.md-fences {
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    background: #333;
+}
+
+.CodeMirror-gutters {
+    background: #333;
+    border-right: 1px solid transparent;
+}
+
+.enable-diagrams pre.md-fences[lang="sequence"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="flow"] .code-tooltip,
+.enable-diagrams pre.md-fences[lang="mermaid"] .code-tooltip {
+    bottom: -2.2em;
+    right: 4px;
+}
+
+code,
+kbd,
+tt,
+var {
+    padding: 2px 5px;
+}
+
+table {
+    max-width: 100%;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+th,
+td {
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+a {
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+hr {
+    background: #474d54;
+    /* variable */
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+a {
+    color: #e0e0e0;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.md-inline-math script {
+    color: #81b1db;
+}
+
+b,
+th,
+dt,
+strong {
+    color: #DEDEDE;
+    /* variable */
+}
+
+mark {
+    background: #D3D40E;
+}
+
+blockquote {
+    color: #9DA2A6;
+}
+
+table a {
+    color: #DEDEDE;
+    /* variable */
+}
+
+th,
+td {
+    border: solid 1px #474d54;
+    /* variable */
+}
+
+.task-list {
+    padding-left: 0;
+}
+
+.md-task-list-item {
+    padding-left: 1.25rem;
+}
+
+.md-task-list-item > input {
+    top: auto;
+}
+
+.md-task-list-item > input:before {
+    content: "";
+    display: inline-block;
+    width: 0.875rem;
+    height: 0.875rem;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #b8bfc6;
+    background-color: #363B40;
+    margin-top: -0.4rem;
+}
+
+.md-task-list-item > input:checked:before,
+.md-task-list-item > input[checked]:before {
+    content: '\221A';
+    /*◘*/
+    font-size: 0.625rem;
+    line-height: 0.625rem;
+    color: #DEDEDE;
+}
+
+/** quick open **/
+.auto-suggest-container {
+    border: 0px;
+    background-color: #525C65;
+}
+
+#typora-quick-open {
+    background-color: #525C65;
+}
+
+#typora-quick-open input{
+    background-color: #525C65;
+    border: 0;
+    border-bottom: 1px solid grey;
+}
+
+.typora-quick-open-item {
+    background-color: inherit;
+    color: inherit;
+}
+
+.typora-quick-open-item.active,
+.typora-quick-open-item:hover {
+    background-color: #4D8BDB;
+    color: white;
+}
+
+.typora-quick-open-item:hover {
+    background-color: rgba(77, 139, 219, 0.8);
+}
+
+.typora-search-spinner > div {
+  background-color: #fff;
+}
+
+#write pre.md-meta-block {
+    border-bottom: 1px dashed #ccc;
+    background: transparent;
+    padding-bottom: 0.6em;
+    line-height: 1.6em;
+}
+
+.btn,
+.btn .btn-default {
+    background: transparent;
+    color: #b8bfc6;
+}
+
+.ty-table-edit {
+    border-top: 1px solid gray;
+    background-color: #363B40;
+}
+
+.popover-title {
+    background: transparent;
+}
+
+.md-image>.md-meta {
+    color: #BBBBBB;
+    background: transparent;
+}
+
+.md-expand.md-image>.md-meta {
+    color: #DDD;
+}
+
+#write>h3:before,
+#write>h4:before,
+#write>h5:before,
+#write>h6:before {
+    border: none;
+    border-radius: 0px;
+    color: #888;
+    text-decoration: underline;
+    left: -1.4rem;
+    top: 0.2rem;
+}
+
+#write>h3.md-focus:before {
+    top: 2px;
+}
+
+#write>h4.md-focus:before {
+    top: 2px;
+}
+
+.md-toc-item {
+    color: #A8C2DC;
+}
+
+#write div.md-toc-tooltip {
+    background-color: #363B40;
+}
+
+.dropdown-menu .btn:hover,
+.dropdown-menu .btn:focus,
+.md-toc .btn:hover,
+.md-toc .btn:focus {
+    color: white;
+    background: black;
+}
+
+#toc-dropmenu {
+    background: rgba(50, 54, 59, 0.93);
+    border: 1px solid rgba(253, 253, 253, 0.15);
+}
+
+#toc-dropmenu .divider {
+    background-color: #9b9b9b;
+}
+
+.outline-expander:before {
+    top: 2px;
+}
+
+#typora-sidebar {
+    box-shadow: none;
+    border-right: 1px dashed;
+    border-right: none;
+}
+
+.sidebar-tabs {
+    border-bottom:0;
+}
+
+#typora-sidebar:hover .outline-title-wrapper {
+    border-left: 1px dashed;
+}
+
+.outline-title-wrapper .btn {
+    color: inherit;
+}
+
+.outline-item:hover {
+    border-color: #363B40;
+    background-color: #363B40;
+    color: white;
+}
+
+h1.md-focus .md-attr,
+h2.md-focus .md-attr,
+h3.md-focus .md-attr,
+h4.md-focus .md-attr,
+h5.md-focus .md-attr,
+h6.md-focus .md-attr,
+.md-header-span .md-attr {
+    color: #8C8E92;
+    display: inline;
+}
+
+.md-comment {
+    color: #5a95e3;
+    opacity: 1;
+}
+
+.md-inline-math svg {
+    color: #b8bfc6;
+}
+
+#math-inline-preview .md-arrow:after {
+    background: black;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border: 0;
+}
+
+.modal-title {
+    font-size: 1.5em;
+}
+
+.modal-content input {
+    background-color: rgba(26, 21, 21, 0.51);
+    color: white;
+}
+
+.modal-content .input-group-addon {
+    color: white;
+}
+
+.modal-backdrop {
+    background-color: rgba(174, 174, 174, 0.7);
+}
+
+.modal-content .btn-primary {
+    border-color: var(--primary-color);
+}
+
+.md-table-resize-popover {
+    background-color: #333;
+}
+
+.form-inline .input-group .input-group-addon {
+    color: white;
+}
+
+#md-searchpanel {
+    border-bottom: 1px dashed grey;
+}
+
+/** UI for electron */
+
+.context-menu,
+#spell-check-panel,
+#footer-word-count-info {
+    background-color: #42464A;
+}
+
+.context-menu.dropdown-menu .divider,
+.dropdown-menu .divider {
+    background-color: #777777;
+}
+
+footer {
+    color: inherit;
+}
+
+@media (max-width: 1000px) {
+    footer {
+        border-top: none;
+    }
+    footer:hover {
+        color: inherit;
+    }
+}
+
+#file-info-file-path .file-info-field-value:hover {
+    background-color: #555;
+    color: #dedede;
+}
+
+.megamenu-content,
+.megamenu-opened header {
+    background: var(--bg-color);
+}
+
+.megamenu-menu-panel h2,
+.megamenu-menu-panel h1,
+.long-btn {
+    color: inherit;
+}
+
+.megamenu-menu-panel input[type='text'] {
+    background: inherit;
+    border: 0;
+    border-bottom: 1px solid;
+}
+
+#recent-file-panel-action-btn {
+    background: inherit;
+    border: 1px grey solid;
+}
+
+.megamenu-menu-panel .dropdown-menu > li > a {
+    color: inherit;
+    background-color: #2F353A;
+    text-decoration: none;
+}
+
+.megamenu-menu-panel table td:nth-child(1) {
+    color: inherit;
+    font-weight: bold;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(1) {
+    color: white;
+}
+
+.modal-footer .btn-default, 
+.modal-footer .btn-primary,
+.modal-footer .btn-default:not(:hover) {
+    border: 1px solid;
+    border-color: transparent;
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default.focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: white;
+    border: 1px solid #ddd;
+    background-color: inherit;
+}
+
+.modal-header {
+    border-bottom: 0;
+}
+
+.modal-footer {
+    border-top: 0;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+    background-color: transparent !important;
+}
+
+.megamenu-menu-panel tbody tr:hover td:nth-child(2) {
+    color: inherit;
+}
+
+.megamenu-menu-panel .btn {
+    border: 1px solid #eee;
+    background: transparent;
+}
+
+.mouse-hover .toolbar-icon.btn:hover,
+#w-full.mouse-hover,
+#w-pin.mouse-hover {
+    background-color: inherit;
+}
+
+.typora-node::-webkit-scrollbar {
+    width: 5px;
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical {
+    background: rgba(250, 250, 250, 0.3);
+}
+
+.typora-node::-webkit-scrollbar-thumb:vertical:active {
+    background: rgba(250, 250, 250, 0.5);
+}
+
+#w-unpin {
+    background-color: #4182c4;
+}
+
+#top-titlebar, #top-titlebar * {
+    color: var(--item-hover-text-color);
+}
+
+.typora-sourceview-on #toggle-sourceview-btn,
+#footer-word-count:hover,
+.ty-show-word-count #footer-word-count {
+    background: #333333;
+}
+
+#toggle-sourceview-btn:hover {
+    color: #eee;
+    background: #333333;
+}
+
+/** focus mode */
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus) img,
+.on-focus-mode .md-task-list-item:not(.md-focus-container)>input {
+    opacity: #686868 !important;
+}
+
+.on-focus-mode li[cid]:not(.md-focus-container){
+    color: #686868;
+}
+
+.on-focus-mode .md-fences.md-focus .CodeMirror-code>*:not(.CodeMirror-activeline) *,
+.on-focus-mode .CodeMirror.cm-s-inner:not(.CodeMirror-focused) * {
+    color: #686868 !important;
+}
+
+.on-focus-mode .md-focus,
+.on-focus-mode .md-focus-container {
+    color: #fff;
+}
+
+.on-focus-mode #typora-source .CodeMirror-code>*:not(.CodeMirror-activeline) * {
+    color: #686868 !important;
+}
+
+
+/*diagrams*/
+#write .md-focus .md-diagram-panel {
+    border: 1px solid #ddd;
+    margin-left: -1px;
+    width: calc(100% + 2px);
+}
+
+/*diagrams*/
+#write .md-focus.md-fences-with-lineno .md-diagram-panel {
+    margin-left: auto;
+}
+
+.md-diagram-panel-error {
+    color: #f1908e;
+}
+
+.active-tab-files #info-panel-tab-file,
+.active-tab-files #info-panel-tab-file:hover,
+.active-tab-outline #info-panel-tab-outline,
+.active-tab-outline #info-panel-tab-outline:hover {
+    color: #eee;
+}
+
+.sidebar-footer-item:hover,
+.footer-item:hover {
+    background: inherit;
+    color: white;
+}
+
+.ty-side-sort-btn.active,
+.ty-side-sort-btn:hover,
+.selected-folder-menu-item a:after {
+    color: white;
+}
+
+#sidebar-files-menu {
+    border:solid 1px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.79);
+    background-color: var(--bg-color);
+}
+
+.file-list-item {
+    border-bottom:none;
+}
+
+.file-list-item-summary {
+    opacity: 1;
+}
+
+.file-list-item.active:first-child {
+    border-top: none;
+}
+
+.file-node-background {
+    height: 32px;
+}
+
+.file-library-node.active>.file-node-content,
+.file-list-item.active {
+    color: white;
+    color: var(--active-file-text-color);
+}
+
+.file-library-node.active>.file-node-background{
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+.file-list-item.active {
+    background-color: rgb(34, 34, 34);
+    background-color: var(--active-file-bg-color);
+}
+
+#ty-tooltip {
+    background-color: black;
+    color: #eee;
+}
+
+.md-task-list-item>input {
+    margin-left: -1.3em;
+    margin-top: 0.3rem;
+    -webkit-appearance: none;
+}
+
+.md-mathjax-midline {
+    background-color: #57616b;
+    border-bottom: none;
+}
+
+footer.ty-footer {
+    border-color: #656565;
+}
+
+.ty-preferences .btn-default {
+    background: transparent;
+}
+.ty-preferences .btn-default:hover {
+    background: #57616b;
+}
+
+.ty-preferences select {
+    border: 1px solid #989698;
+    height: 21px;
+}
+
+.ty-preferences .nav-group-item.active {
+    background: var(--item-hover-bg-color);
+}
+
+.ty-preferences input[type="search"] {
+    border-color: #333;
+    background: #333;
+    line-height: 22px;
+    border-radius: 6px;
+    color: white;
+}
+
+.ty-preferences input[type="search"]:focus {
+    box-shadow: none;
+}
+
+[data-is-directory="true"] .file-node-content {
+    margin-bottom: 0;
+}
+
+.file-node-title {
+    line-height: 22px;
+}
+
+.html-for-mac .file-node-open-state, .html-for-mac .file-node-icon {
+    line-height: 26px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+::-webkit-scrollbar-thumb:active {
+    background: rgba(230, 230, 230, 0.50);
+}
+
+#typora-sidebar:hover div.sidebar-content-content::-webkit-scrollbar-thumb:horizontal {
+    background: rgba(230, 230, 230, 0.30);
+}
+
+.nav-group-item:active {
+    background-color: #474d54;
+}
+
+.md-search-hit {
+    background: rgba(199, 140, 60, 0.81);
+    color: #eee;
+}
+
+.md-search-hit * {
+    color: #eee;
+}
+
+#md-searchpanel input {
+    color: white;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = ''><h1><a name="作品詳細履歷表" class="md-header-anchor"></a><span>作品詳細履歷表</span></h1><h2><a name="關於我" class="md-header-anchor"></a><span>關於我</span></h2><p><span>中文名字：游正坤</span></p><p><span>英文名字：Kurt</span></p><p><span>興趣：設計遊戲，寫程式，畫畫。</span></p><p><span>信箱：</span><a href='kurtyu1209@gmail.com'><span>kurtyu1209@gmail.com</span></a></p><p><span>臉書：</span><a href='https://www.facebook.com/profile.php?id=1447955666'><span>https://www.facebook.com/profile.php?id=1447955666</span></a></p><p><span>個人產品粉絲團：</span><a href='https://www.facebook.com/OFF-LINE-%E5%B7%B2%E8%AE%80%E4%B8%8D%E5%9B%9E-552195861614294'><span>OFFLINE臉書紛絲團</span></a></p><h1><a name="一-功能型手機feature-phone---負責專案" class="md-header-anchor"></a><span>一. 功能型手機(Feature Phone) - 負責專案</span></h1><p>&nbsp;</p><h2><a name="2005年-水管大師pipe-masterj2me" class="md-header-anchor"></a><span>2005年 水管大師Pipe Master(J2ME)</span></h2><blockquote><p><span>任職於Walkgame時候開發的動作類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>個人第一個遊戲專案，獨立開發，擬3D的動作射擊遊戲，遊戲方式當時雖然很有創意，可惜當時經驗較不足，並沒有把遊戲完成的很好，學習到很多遊戲業的知識，仍舊是我最喜愛的作品。。</span></p><p>&nbsp;</p><h2><a name="2006年-勇者屠龍傳dragon-frankj2me" class="md-header-anchor"></a><span>2006年 勇者屠龍傳Dragon Frank(J2ME) </span></h2><blockquote><p><span>任職於Walkgame時候開發的動作類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>勇者屠龍傳是一款類似獸王記的橫向動作遊戲，當時手機硬體受限的情況之下，最小支援到128x128畫面大小，且記憶體僅有512KB的手機，從下圖可以看見整個遊戲檔案大小僅有190KB。</span></p><p><span>此款遊戲是公司主推的作品之一，當時有代表公司參與展出，因為通過Nokia認證，所以在當時的Ovi Store也有販售。</span></p><p><img src="dragonfrank_2.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2006年-勇者屠龍傳dragon-frank-j2menokia連線對戰" class="md-header-anchor"></a><span>2006年 勇者屠龍傳Dragon Frank (J2ME+Nokia連線對戰) </span></h2><blockquote><p><span>任職於Walkgame時候開發的動作類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>介接Nokia當時強力推廣的Snap技術，是一種多人線上遊戲平台SDK，當時的隨身遊戲選擇頗受歡迎的勇者屠龍傳做為基礎，然而那時候的連線技術不佳，大部分手機仍然是2.5G，無法即時連線運算，所以只應用上傳分數的方式進行互動。</span></p><p><img src="dragonfrank_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><blockquote><p><span>照片為勇者屠龍傳和的超市大亨的Nokia Sanp發表會</span></p></blockquote><p><span>相關報導</span></p><blockquote><p><a href='http://www.eprice.com.tw/mobile/news/6414/1/'><span>Nokia 口袋擂台上線　手機遊戲 Online 開打！</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2007年-釣魚大師-fishing-masterj2me" class="md-header-anchor"></a><span>2007年 釣魚大師 Fishing Master(J2ME) </span></h2><blockquote><p><span>任職於Walkgame時候開發的運動類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>比較輕鬆休閒的一款遊戲，收集魚類的樂趣，有實際釣魚的過程，增加遊戲性。合作的遊戲企劃非常有想法，是我蠻特別的一次合作經驗ㄋ。</span></p><p>&nbsp;</p><h2><a name="2007年-cubej2me" class="md-header-anchor"></a><span>2007年 Cube(J2ME) </span></h2><blockquote><p><span>任職於Walkgame時候開發的益智類遊戲，J2ME平台，負責所有程式撰寫。ㄋ</span></p></blockquote><p><span>一位蠻另類的遊戲企劃所設計的創新益智遊戲，因為邏輯複雜，很容易出現沒有考慮的狀況，前後開發時間總共超過四個月，然而也因為規則複雜，玩家也難以上手。</span></p><p>&nbsp;</p><h2><a name="2007年-超市大亨-super-market-typcoonj2me-online" class="md-header-anchor"></a><span>2007年 超市大亨 Super Market Typcoon(J2ME online)</span></h2><blockquote><p><span>任職於Walkgame時候開發的經營類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>捨棄Nokia Snap，改使用自製連線套件所開發的線上遊戲，此款經營類的遊戲當時意外大受歡迎，耐玩度很高，所以陸續有推出多個版本。</span></p><p><img src="supermarket_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2008年-暗棋j2me" class="md-header-anchor"></a><span>2008年 暗棋(J2ME) </span></h2><blockquote><p><span>任職於Walkgame時候開發的益智類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>第一次設計棋類人工智慧，挑戰性頗高，第一版人工智慧經驗不足，會有死局的情況，後續版本才陸續改良。</span></p><p>&nbsp;</p><h2><a name="2008年-暗棋連線版j2me" class="md-header-anchor"></a><span>2008年 暗棋連線版(J2ME)</span></h2><blockquote><p><span>任職於Walkgame時候開發的益智類遊戲，J2ME平台，負責所有程式撰寫。</span></p></blockquote><p><span>使用自製連線套件開發將單機版本暗棋成線上遊戲，連線速度是當時的大問題。</span></p><p>&nbsp;</p><h2><a name="2008年-麻將王連線版的patch程式pc" class="md-header-anchor"></a><span>2008年 麻將王連線版的Patch程式(PC) </span></h2><blockquote><p><span>任職於Walkgame時候開發的益智類遊戲，J2ME平台，負責升級程式撰寫。</span></p></blockquote><p><span>時第一次參予大型PC遊戲，也是個人在該公司最後負責的專案，當時大環境狀況不足支撐這個專案，此專案其實並沒有真正被推廣，是一次個人參與真正大型開發的寶貴經驗。</span></p><p><img src="mjking_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>相關報導</span></p><blockquote><p><a href='http://www.gamebase.com.tw/news/topic/83410053/'><span>《麻將王online》手機或電腦都能玩 7月25日展開封測</span></a></p></blockquote><blockquote><p><a href='http://www.gamebase.com.tw/news/topic/83410053/'><span>《麻將王online》討論區</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2009年-重裝三國j2me" class="md-header-anchor"></a><span>2009年 重裝三國(J2ME) </span></h2><p><span>動作類遊戲，J2ME平台，負責主核心程式撰寫。(Joymaster)</span>
+<span>極致行動科技第一個負責的專案，帶領另一個助理工程師，協同完成。</span>
+<span>這個專案是類似三國無雙的玩法，也開發了關卡編輯器，是自己第一次主導的大專案，開發時間連同遊戲引擎約一年，由於當時手機硬體已經漸漸提升，但是卻是屬於過渡時期，好壞差異頗大，所以研發引擎摸索過程非常辛苦，也為重裝三國二代的開發打下基礎。(重裝三國二代之後，則是由這位助理工程師在2010年度專案開發完成，自己則是去開發另一款2010年的年度專案。)</span></p><p><img src="king3_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>相關報導</span></p><blockquote><p><a href='https://acg.gamer.com.tw/acgDetail.php?s=30143'><span>巴哈姆特-極致行動科技宣布推出手機動作遊戲《重裝三國》</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2010年-魔劍鎮魂曲j2me" class="md-header-anchor"></a><span>2010年 魔劍鎮魂曲(J2ME)</span></h2><blockquote><p><span>任職於極致行動科技時候開發的角色扮演類遊戲，Android平台，負責主核心程式撰寫。 </span></p></blockquote><p><span>回合制戰棋類遊戲，以完全複製經典作品聖火降魔錄系列為目標，並且加上新系統的設計，是該年極致行動科技公司的年度大作之一，這個專案自己負責主程式核心開發，帶領另一位助理工程師協助部分人工智慧設計。</span></p><p><span>複雜的屬性相剋設定、豐富的動畫、地圖戰鬥系統是開發這款遊戲最花時間的部分。這款也是自己遊戲工作裡最後一個J2ME專案。</span></p><p><img src="sr_2.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>相關報導</span></p><blockquote><p><a href='http://hhgtdbuuwew.pixnet.net/blog/post/11132522-srpg%E6%89%8B%E6%A9%9F%E9%81%8A%E6%88%B2%E3%80%8A%E9%AD%94%E5%8A%8D%E9%8E%AE%E9%AD%82%E6%9B%B2-%E8%8B%B1%E9%9B%84%E4%B9%8B%E6%B7%9A%E3%80%8Bjava-%E7%89%88-8'><span>SRPG手機遊戲《魔劍鎮魂曲-英雄之淚》JAVA 版 8 月 台灣上架</span></a></p></blockquote><h1><a name="二-智慧型手機smart-phone---負責專案" class="md-header-anchor"></a><span>二. 智慧型手機(Smart Phone) - 負責專案</span></h1><h2><a name="2010年-滾石行動的奶油獅打磚塊-android" class="md-header-anchor"></a><span>2010年 滾石行動的奶油獅打磚塊 (Android)</span></h2><blockquote><p><span>個人外包接案的益智類遊戲，Android平台，負責所有程式撰寫。</span></p></blockquote><p><span>朋友介紹的外包合作案件。這一款遊戲特地先開發了打磚塊的核心，然後才實際進行專案開發。除了是自己第一款開發Android平台的遊戲，也是自己第一次承接公司以外的外包專案。遊戲本身開發還算順利，遭遇比較多的問題反而是當時Android 1.6以前的SDK，有許多分版限制需要處理。</span></p><p><img src="lion_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2011年-魔劍鎮魂曲android" class="md-header-anchor"></a><span>2011年 魔劍鎮魂曲(Android)</span></h2><blockquote><p><span>任職於極致行動科技時候開發的角色扮演類遊戲，Android平台，負責主核心程式撰寫。 </span></p></blockquote><p><span>將J2ME版本系統移植到Android平台上面，加入觸控。除了遊戲邏輯之外，其他部分完全重寫，遊戲美術也全部重新製作，這個專案自己仍舊是負責主程式核心開發，並帶領另一位助理工程師協助部分界面的設計。這一個作品有到日本參展，也是玩家討論比較多的一個版本，玩家之間非常的熱心寫攻略與心得交流，也因此難免出現有玩家自行修改存檔和盜版嚴重的問題。</span></p><p><span>2010年完成了SRPG作品魔劍鎮魂曲系列，程式部分並不是寫得最好，卻是自己目前覺得最滿意的作品，目前仍然可以看到玩家持續在討論遊戲的攻略，Android版本也多次到日本和韓國參展，很有成就感。</span></p><p><img src="sr_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>相關報導</span></p><blockquote><p><a href='https://acg.gamer.com.tw/acgDetail.php?s=50035'><span>巴哈姆特電玩瘋 第33集 2011年7月30日播出</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2011年-發太郎大老二online-game-ios" class="md-header-anchor"></a><span>2011年 發太郎大老二Online Game (iOS) </span></h2><blockquote><p><span>任職於極致行動科技時候開發的博弈類遊戲，Android平台，負責主核心程式撰寫。 </span></p></blockquote><p><span>極致行動科技的發太郎系列作品第二部。這個專案由自己負責的第一款iPhone遊戲開發，負責大老二紙牌遊戲的多人網路處理、遊戲邏輯和遊戲畫面的開發，遊戲大廳則是介接該系列作原來的大廳，使用的是iOS上面頗為知名的cocos2d引擎。</span></p><p><img src="two_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2011年-爆爆方塊單機版本androidios" class="md-header-anchor"></a><span>2011年 爆爆方塊單機版本(Android/iOS)</span></h2><blockquote><p><span>任職於極致行動科技時候開發的益智類遊戲，Android平台，負責主核心程式撰寫。 </span></p></blockquote><p><span>這一個專案並不是使用Android平台的Java語言完成，改使用C++語法做為開發語言，最後使用Android NDK編譯到Android平台上面執行，主要研發目標是研發跨平台遊戲技術，使用C++版本的cocos2d-x引擎，可直接Porting到iPhone平台上面。</span></p><p><img src="far_bubble_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><blockquote><p><span>照片為參加遠傳S市集得獎照片-APP上癮症獎</span></p></blockquote><p>&nbsp;</p><h2><a name="2012年-博弈2d擬真賽馬ios" class="md-header-anchor"></a><span>2012年 博弈2D擬真賽馬(iOS)</span></h2><blockquote><p><span>任職於新加坡商瑞嘉科技時候開發的益智類遊戲，iOS平台，負責主核心程式撰寫。 </span></p></blockquote><p><span>今年加入瑞嘉科技公司(OneLab) 有幸的和台灣幾位Flash開發領域幾位台灣有名的前輩共事：</span></p><p><span>Ben - </span><a href='http://blog.ben.idv.tw/'><span>邦邦的部落格</span></a></p><p><span>Ticore - </span><a href='http://ticore.blogspot.tw/'><span>Ticore Blog</span></a></p><p><span>雖然我們使用不同的技術（Flash、Flex、AIR、ActionScript），但是對於開發上有著相同的觀念，討論的過程中也學習成長了很多。我在這裡學習了如何以HTML5來開發遊戲的技術，深入研究JavaScript程式語言，並且開發出數款博弈遊戲上線。</span></p><p><span>這個專案是我另一個以cocos2d-x遊戲引擎完成的產品，是一個iPad的大型專案。</span></p><p><img src="racing_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p>&nbsp;</p><h2><a name="2012年-帶著故宮走android" class="md-header-anchor"></a><span>2012年 帶著故宮走(Android)</span></h2><blockquote><p><span>個人外包接案的大型應用程式，Android平台，協同合作程式撰寫。</span></p></blockquote><p><span>故宮博物院第一次開發APP的案子，是由前公司朋友介紹委託我進行，然後由我主導開發並且和我一位朋友程式設計師協助測試合作完成。</span></p><p><span>這個專案應用內容很廣，GPS定位導航，二十個文物互動（手勢 震動 重力偵測等等），資料同步更新，客制化的使用者介面，整個專案開發到結案的時間約半年，期間和政府單位以及太極動畫廠商的合作的經驗，中途其實預過多次板和設計，因為有許多文物圖片可供瀏覽，故宮提供的圖片的解析度非常的高，在技術上我們克服了如何在 Android平台上處理超巨大圖形的方法。</span></p><p><img src="bringk_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p><img src="bringk_2.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p><span>相關報導</span></p><blockquote><p><a href='http://www.npm.gov.tw/zh-tw/Article.aspx?sNo=03004431'><span>國立故宮博物院 - 臺灣第一支文物互動APP 「帶著故宮走」正式上線</span></a></p></blockquote><blockquote><p><a href='http://www.ettoday.net/news/20121221/142633.htm'><span>東森新聞 - 全臺灣第一支文物互動APP　「帶著故宮走」上線</span></a></p></blockquote><blockquote><p><a href='http://www.qaf.org.tw/bbs/forum.php?mod=viewthread&amp;tid=846'><span>搞笑穿越 「帶著故宮走APP」微電影</span></a></p></blockquote><blockquote><p><a href='https://www.youtube.com/watch?v=Q7cS1I8fkaQ'><span>蘋果日報特別為Android版本所製作的介紹影片</span></a></p></blockquote><p><span>下載連結</span></p><blockquote><p><a href='https://itunes.apple.com/tw/app/discover-npm/id588676047?l=zh&amp;mt=8'><span>iOS版本下載連結</span></a></p></blockquote><blockquote><p><a href='https://play.google.com/store/apps/details?id=com.mobile159.museum&amp;feature=search_result&amp;hl=zh_TW'><span>Android版本下載連結</span></a></p></blockquote><p><span>官方影片</span></p><blockquote><p><a href='http://www.youtube.com/watch?v=M3FyPmNECX0'><span>微電影播映網址</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2013年-slot-gamehtml5" class="md-header-anchor"></a><span>2013年 Slot Game(HTML5)</span></h2><blockquote><p><span>任職於新加坡商瑞嘉科技時候開發的益智類遊戲，Web平台，負責博弈遊戲程式撰寫。</span></p></blockquote><p><span>今年公司嘗試在手機上開發HTML5遊戲，由我負責研究和開發， 陸續完成了許多產品和實驗應用。</span></p><p><span>今年接觸的技術和我之前的經驗比較有差異，期間深入學習JavaScript語法，HTML5，CSS，以及HTML5引擎EaselJS, TweenLite，還有PhoneGap的Wrapper Framework等等...</span></p><p><img src="slot_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p>&nbsp;</p><h2><a name="2013年-實驗性測試的動作遊戲html5" class="md-header-anchor"></a><span>2013年 實驗性測試的動作遊戲(HTML5)</span></h2><p><span>線上遊戲網址：</span></p><p><a href='https://dl.dropboxusercontent.com/u/24490474/attackonmeat/web/AttackonMeat.html' target='_blank' class='url'>https://dl.dropboxusercontent.com/u/24490474/attackonmeat/web/AttackonMeat.html</a></p><p><span>正式產品：SlotGame</span></p><p>&nbsp;</p><h2><a name="2014年-品牌系列ios" class="md-header-anchor"></a><span>2014年 品牌系列(iOS)</span></h2><blockquote><p><span>任職於香港商英迪思公司時候維護的品牌產品系列，iOS平台，負責主核心程式撰寫。 </span></p></blockquote><p><span>香港商英迪思是一家全球的產品直銷公司，主打歐洲品牌高級產品系列，在香港等地販售，我負責的此系列產品部分有五個，以相同的架構模組來呈現不同的產品。</span></p><p><span>應用程式介紹</span></p><hr /><p><span>Estebel全系列芳香精油與保養品，遵循古法煉製，輔以高科技製作技術，以純淨的水質，獨家的配方，加上精選的植物素材，完美地結合了來自普羅旺斯的優質精油原料，及格拉斯頂級的專業製造技術。更針對亞洲地區的空氣環境及東方人的體質、肌膚狀況，創造出完全符合東方人肌膚需求的保養產品。利用天然植物能量，為您排除現代生活中龐雜壓力所造成的疲憊壓力，細心呵護您每一吋肌膚，使您身心舒暢，恍如置身於普羅旺斯。</span></p><p><span>功能介紹：</span></p><ul><li><span>產品：透過精美的介面及詳盡的圖文介紹，提供您最完整的產品知識！</span></li><li><span>故事：詳細的品牌與薰香催化方式的介紹，使您更加了解Estebel背後起源及產品技術！</span></li><li><span>影音: 藉由影音之介紹讓您更加認識集團之商品資訊! </span></li><li><span>最愛：可將產品加至最愛列表快速瀏覽，讓您方便查找,無需再從眾多產品中費時尋尋覓覓，方便又快速！</span></li><li><span>查存：提供查詢小幫手讓您隨時查詢Estebel產品的可出貨狀況，只要事先查詢，即可完全避免到達零售點現場卻訂不到產品的風險！</span></li></ul><hr /><p><img src="index_products_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p>&nbsp;</p><h2><a name="2014年-個人上架作品---bubbletaskios" class="md-header-anchor"></a><span>2014年 個人上架作品 - BubbleTask(iOS)</span></h2><blockquote><p><span>個人上架的第一個iOS平台商業個人產品。</span></p></blockquote><p><span>一種新型態的便條紙應用程式。使用者可以方便的管理自己每天的小工作或者當成筆記也可以，支援人工語音讀出便條紙上面的文字功能，畫面以有趣的物理特性來表現便條紙。</span></p><p><span>應用程式介紹</span></p><hr /><p><span>What do you want to do today?</span></p><p><span>No more boring note lists!!</span></p><p><span>BubbleTask is a fast, simple and easy to use task manager.</span>
+<span>Write it down immediately and you&#39;ll never forget anything important again.</span></p><p><span>How to use it?</span></p><ul><li><span>Long press on the screen to add a Bubble.</span></li><li><span>Double-tap the Bubble to delete it.</span></li></ul><p><span>Features:</span></p><ul><li><span>Create and edit Bubble.</span></li><li><span>Bubble groups.</span></li><li><span>High performance bouncing ball physics simulation.</span></li><li><span>Supports &#39;Text-to-Speech&#39;.</span></li><li><span>Supports 4 digit passcode or Touch ID security.</span></li><li><span>iCloud support.</span></li></ul><p><span>BubbleTask Lite - is a freeware, feature limited version.</span></p><ul><li><span>9 ball types. </span></li><li><span>A bit of advertisements.</span></li></ul><p><span>Give it a try! </span></p><p><span>BubbleTask make your life easier.</span></p><p><span>Please feel free to contact us at </span><a href='mailto:poga.service@gmail.com' target='_blank' class='url'>poga.service@gmail.com</a><span> if you have suggestions, feature requests, or bug reports.</span>
+<span>your feedback is appreciated.</span></p><hr /><p><img src="bubble_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><blockquote><p><span>本程式只有英文版。</span></p></blockquote><p>&nbsp;</p><h2><a name="2015年-個人實驗作品---greencamios" class="md-header-anchor"></a><span>2015年 個人實驗作品 - GreenCam(iOS)</span></h2><p><span>源自於電影合成特效的靈感開發的實驗作品。後來發現製作成魔術影片上傳Youtbue似乎比直接上架來得有趣，之後只在同事之間流傳。</span></p><p><span>GreenCam 投影模式展示：把照片投影到綠色的紙上面</span>
+<img src="green_cam_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>GreenCam 穿透模式展示：把背景投影到綠色的紙上面</span>
+<img src="green_cam_2.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2015年-個人實驗產品---mikucamios" class="md-header-anchor"></a><span>2015年 個人實驗產品 - MikuCam(iOS)</span></h2><blockquote><p><span>個人實驗產品</span></p></blockquote><p><span>以臉部辨識為靈感開發的實驗作品，能夠即時判斷臉部角度是一個技術上的突破，純樂趣。當時採用GPUImage的第三方Library完成。</span></p><p>&nbsp;</p><h2><a name="2015年-個人上架產品---filmlikeios" class="md-header-anchor"></a><span>2015年 個人上架產品 - FilmLike(iOS)</span></h2><blockquote><p><span>個人上架產品</span></p></blockquote><p><span>可以多種即時電影濾鏡拍攝微電影，只提供支援iPad版本。</span></p><p><span>應用程式介紹</span></p><hr /><p><span>簡單, 容易並且很棒!</span>
+<span>微電影相機（FilmLike）是一個專門拍攝微電影的應用程式</span>
+<span>而且非常容易使用。</span></p><p><span>微電影相機（FilmLike）的特色：</span></p><ul><li><span>簡單的使用者介面</span><br/><span>拍攝屬於自己的微電影從來沒有像這樣的容易過。</span></li><li><span>超過100種高品質即時濾鏡可以選擇</span>
+<span>所有濾鏡特效都是免費的，而且他們是可以疊加的。</span></li><li><span>支援HD(16:9)拍攝</span>
+<span>支援裝置：iPad2, iPad3, iPad4, iPad Air, iPad Mini, iPad Mini2...</span></li><li><span>聲音錄製是可選的</span>
+<span>你可以選擇只錄製影像而不要錄製聲音。。</span></li><li><span>支援自動對焦</span></li><li><span>即時預覽影片</span>
+<span>儲存到影片捲之前快速預覽你的影片。</span></li></ul><hr /><p><img src="filmlike_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><blockquote><p><span>備註: POGA.tw 是當時個人自組的工作室名稱，已不再使用，之後的個人上架都改直接以個人名字KurtYu為商標。</span></p></blockquote><p>&nbsp;</p><h2><a name="2015年-itradeios" class="md-header-anchor"></a><span>2015年 iTrade(iOS)</span></h2><blockquote><p><span>任職於香港商英迪思公司開發的銷售應用程式，iOS平台，負責主核心程式撰寫。</span></p></blockquote><p><span>iTrade是提供公司內部直銷機制的手機應用程式(企業發佈方式)，可以即時查詢產品資料與會員資料，並提供專屬活動，門市活動，項目推薦與即時的問卷調查功能。作為提供台灣香港與內地的客戶溝通媒介。</span></p><p><img src="itrade_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2016年-phoncareandroid-app）" class="md-header-anchor"></a><span>2016年 PhonCare（Android App）</span></h2><p><span>PhonCare軟體在訊息交換格式，採用由國際組織OGC(Open Geospatial Consortium)所制定之地理簡訊共通交換標準。因此，使用者除了可以安裝Phoncare軟體來相互查詢/交換彼此位置之外，若其它的LBS相關軟體也採用此一標準，亦可與其它LBS軟體之間運行地理資訊的交換。此一應用將可不限定於單一平台及單一應用程式，對於科技關懷應用系統，可擴及更大的使用群眾。</span>
+<span>這是我進入工研院第一個完成上架的應用程式。</span></p><p><span>APP下載連結</span></p><p><a href='http://cn.appszoom.com/android_applications/tools/phoncare_btqce.html'><span>http://cn.appszoom.com/android_applications/tools/phoncare_btqce.html</span></a></p><p>&nbsp;</p><h2><a name="2016年-阿米計畫---台灣世界展望會合作案-android）" class="md-header-anchor"></a><span>2016年 阿米計畫 - 台灣世界展望會合作案 (Android）</span></h2><blockquote><p><span>任職於究心公益科技，負責與台灣世界展望會合作阿米計畫的Android版本開發。</span></p></blockquote><p><span>阿米計畫是由世界展望會推出的第一個全球華人連結計畫。</span></p><p><span>應用程式介紹</span></p><hr /><p><span>什麼是「阿米計畫」?</span></p><p><span>阿米計畫是由世界展望會建立的一個全新社交公益平台。 在阿米計畫中，您將看見世界各地兒童的需要，並能為此揪團建立愛心圈，用最實際的行動，幫助兒童迎向豐盛生命。</span></p><p><span>「阿米計畫」關懷的兒童焦點: </span>
+<span>A. 水資源與兒童健康: 為偏遠地區兒童提供乾淨飲水與基礎衛生設施</span>
+<span>B. 兒童教育: 為貧困兒童鋪上一條安心讀書、受教育的路</span>
+<span>C. 生計發展: 幫助社區自立、擺脫貧窮，進而改善兒童的生活與環境安全</span></p><p><span>「阿米計畫」平台介紹</span></p><p><span>功能應用:</span>
+<span>-&gt; 從「看見需要」中瀏覽並選擇一個兒童服務工作項目，為這個項目建立自己專屬的「愛心圈」(Love Circle)。</span>
+<span>-&gt; 邀請志同道合的朋友加入自己的「愛心圈」，為孩子依據募款目標金額，於您自訂的期限內募集資源。</span>
+<span>-&gt; 從「公開的愛心圈」或「朋友的愛心圈」中，查看其他人的愛心圈，選擇加入，認識與您一樣有愛心的公益夥伴。</span>
+<span>-&gt; 「愛心圈」中可以加入照片、影片連結和文字，分享您精彩的「愛的故事」，贏得更多新朋友。</span></p><p><span>特殊功能:</span></p><ul><li><span>社群登入 – 臉書或G+擇一登入，簡單快速</span></li><li><span>個人化設計 – 依用戶心情設定，每天一則名言小語，還可以用LINE分享給朋友喔</span></li><li><span>愛心圈進度 - 募款進度以百分比顯示，一目了然</span></li><li><span>記錄我的足跡 - 每一個行動都能累積阿米金幣，也可收集成就徽章，記錄自己愛心的足跡</span></li></ul><hr /><p><img src="ami_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>相關報導</span></p><blockquote><p><a href='https://www.ami.care/'><span>阿米計畫官方網站</span></a></p></blockquote><blockquote><p><a href='https://www.facebook.com/www.ami.care/'><span>阿米計畫臉書</span></a></p></blockquote><blockquote><p><a href='http://minikopeng.pixnet.net/blog/post/45918818-%E3%80%8E%E5%85%AC%E7%9B%8A%E3%80%8F%E9%98%BF%E7%B1%B3%E8%A8%88%E7%95%AB%E3%80%82%E6%8F%AA%E5%9C%98%E5%B9%AB%E5%8A%A9%E8%B2%A7%E8%8B%A6%E5%85%92%E7%AB%A5%E5%81%A5%E5%BA%B7%E6%88%90'><span>『公益』阿米計畫。揪團幫助貧苦兒童健康成長、受教育 X 透過網路分享串聯愛心天使。世界展望會</span></a></p></blockquote><blockquote><p><a href='http://searchapp.soft4fun.net/article/information/%E9%98%BF%E7%B1%B3%E8%A8%88%E7%95%AB%20A-Mi%20Project/8304026'><span>【免費社交APP】阿米計畫 A-Mi Project|線上玩APP不花錢</span></a></p></blockquote><p><span>下載連結</span></p><blockquote><p><a href='https://play.google.com/store/apps/details?id=org.wvi.amiproject'><span>Android版本下載連結</span></a></p></blockquote><blockquote><p><a href='https://itunes.apple.com/tw/app/a-mi-ji-hua-a-mi-project/id980586214?l=zh&amp;mt=8'><span>iOS版本下載連結</span></a></p></blockquote><p><span>官方影片</span></p><blockquote><p><a href='https://www.youtube.com/watch?v=XbuGotiAeoM'><span>阿米計畫 - App 介紹</span></a></p></blockquote><blockquote><p><a href='https://www.youtube.com/watch?v=UwRr8HwW54A'><span>阿米計畫－走吧！一起去部落吧！(部落廚房行前會)</span></a></p></blockquote><blockquote><p><a href='https://www.youtube.com/watch?v=gqBtqASDq2M'><span>阿米計畫－江子翠行道會的蝴蝶效應</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2016年-offline---已讀不回android" class="md-header-anchor"></a><span>2016年 OFFLINE - 已讀不回(Android)</span></h2><blockquote><p><span>個人開發與商業經營的架上Android應用程式。</span></p></blockquote><p><span>個人第一個成功經營的Android App。卻是個人開發期最短的App，利用2016年的過年連假時間完成。目前已經成功經營一年多，有效使用者約兩萬人，每日活躍使用數約1500人左右。</span></p><p><span>已讀不回打中使用者的心理，雖然同樣的產品已經在市場一年，這個產品推出唯一能夠顯示貼圖的已讀不回，成功吸引不少用戶轉為使用我的產品。</span></p><p><span>目前每日新安裝人數約在100人左右，每月廣告營收和內購營收也持續增加中，以台灣與泰國為最多使用者用戶來源。</span></p><p><img src="offline_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><blockquote><p><a href='https://www.facebook.com/OFF-LINE-%E5%B7%B2%E8%AE%80%E4%B8%8D%E5%9B%9E-552195861614294'><span>OFFLINE臉書紛絲團</span></a></p></blockquote><p><span>Android版本下載連結</span></p><blockquote><p><a href='https://play.google.com/store/apps/details?id=com.kurtyu.offline&amp;hl=zh_TW'><span>Android版本下載連結</span></a></p></blockquote><p>&nbsp;</p><h2><a name="2016年-clickersandroid）" class="md-header-anchor"></a><span>2016年 Clickers（Android）</span></h2><p><span>Clickers是替國外社群設計的工具應用程式。Clickers是一個非營利組織，該組織的成立目的是希望以社群力量來過濾龐大的網路資訊，找出有意義與正確的資料，讓各國救災防災能夠使用，至於要怎麼過濾網路世界上的資訊，就需要一個簡便的應用程式，這就是Clickers。</span></p><p><span>考量到Clicker的使用者們是茶餘飯後的時間才會進行的活動，個人採用翻頁式搭破側邊欄的設計，讓單手也可以使用。</span></p><p><img src="clicker_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2016年-橘子活動遊戲html5-game）" class="md-header-anchor"></a><span>2016年 橘子活動遊戲（HTML5 Game）</span></h2><blockquote><p><span>任職於究心公益科技，公司的活動產品，負責Web遊戲開發。</span></p></blockquote><p><span>這是一個 Web Game，我以HTML5寫成，支援替台灣橘農推廣活動寫的小遊戲。雖然我並不是WebGame或者JavaScript的專家，但是寫遊戲其實程式語言只是其次，重點還是在於怎麼用和遊戲設計本身，由於我早年的經驗，這遊戲的設計和開發並沒有花我太多時間，約兩個禮拜，卻可以帶來很不錯的成果，橘子活動很非常成功。</span></p><p><img src="orange_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p><img src="orange_2.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>遊戲網址</span></p><p><a href='http://kurtyu.github.io/geotest/OrangeJS.html?username=kurtyu'><span>http://kurtyu.github.io/geotest/OrangeJS.html?username=kurtyu</span></a></p><p>&nbsp;</p><h2><a name="2016年-究平安android）" class="md-header-anchor"></a><span>2016年 究平安（Android）</span></h2><blockquote><p><span>任職於究心公益科技，公司的主要產品，負責Android版本開發。</span></p></blockquote><p><span>公司的主要產品，一個公義救災防災平台。期間我參與了全新改版，以Xmarin來重寫，C#程式語言對我來說並不是主要問題，而是Xamarin本身仍然有許多錯誤和嚴重效能問題，所以結果並沒有成功。</span></p><p><span>跨平台的App作法，我個人認為還是不可行，因為本質上就不一樣，也且受限制很大。於是我們恢復到Android/iOS各自開發的原本做法。</span></p><p><img src="geobingan_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2016年-geomaptoolandroid）" class="md-header-anchor"></a><span>2016年 geoMapTool（Android）</span></h2><blockquote><p><span>任職於究心公益科技，負責與亞洲銀行合作的Android版本開發。</span></p></blockquote><p><span>亞洲銀行委託合作，以Open Street Map為資料來源的防災地圖工具，能夠標示出淺在的危險地形或者援救資源的地理標誌。</span></p><p><span>和多位國外同事共同完成的Android/iOS App。</span>
+<span>由於我偶爾才會搭車到新竹工研院進行討論，開發期間大部分時間都是以視訊和Slack進行程式設計的溝通。</span></p><p><span>合作上，除了用英文來進行程式技術的架構設計討論，跨國家文化要如何相處與合作，都是我個人很難得的一次經驗。</span></p><p><img src="osm_map_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><blockquote><p><span>菲律賓單位在當地實際測試geoMapTool的照片</span></p></blockquote><p><a href='https://play.google.com/store/apps/details?id=com.geothings.osmtools'><span>Android版本下載連結</span></a></p><p>&nbsp;</p><h2><a name="2016年-正美集團頒獎活動android" class="md-header-anchor"></a><span>2016年 正美集團頒獎活動(Android)</span></h2><blockquote><p><span>任職於伺動行銷公司，活動支援，負責Android版本開發。</span></p></blockquote><p><span>正美領獎後台是一個很小的活動App，大約是2個工作天完成的活動產品，正如行銷公司的生活型態縮影，一切都是以快速產出為主。</span></p><p><img src="mm_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2016年-銷售神器android" class="md-header-anchor"></a><span>2016年 銷售神器(Android)</span></h2><blockquote><p><span>任職於伺動行銷公司，商業產品，負責Android版本開發。</span></p></blockquote><p><span>銷售神器以大數據分析來呈現會員資料，讓銷售人員知道該怎麼和顧客維持關係。銷售神器以R語言做分析，並且提供各種數據模組來進行特定的分析報告。分析組在上海分公司，研發組在台北總公司，雙方如何順利進行開發合作是一次很棒的經驗。</span></p><p><img src="sales_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2017年-trucklanvisibilityandroidios" class="md-header-anchor"></a><span>2017年 Trucklan/Visibility(Android/iOS)</span></h2><blockquote><p><span>任職於維新網股份公司，商業產品，負責Android/iOS版本開發。</span></p></blockquote><p><span>Trucklan is a modern and fast app for truck driver and company. Trucklan sync delivering data with IXORP platform (</span><a href='http://www.ixorp.com' target='_blank' class='url'>www.ixorp.com</a><span>). For truck company to dispatch job, trucking and report convinently. For driver to access job informaiton, feedback delivering input data and check my volumne in any where.</span></p><p><img src="v_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><img src="v_2.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><img src="v_3.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p>&nbsp;</p><h2><a name="2018年-pupucar駕駛版客戶版androidios" class="md-header-anchor"></a><span>2018年 PUPUCAR駕駛版/客戶版(Android/iOS)</span></h2><blockquote><p><span>創業公司，負責Android/iOS版本的需求訪談與設計開發，技術股東。</span></p></blockquote><p><span>合作代僱駕駛專用APP。專營機場接送服務的客製化系統，支援即時接單，掌握客戶，即時回報狀況，以及行程費用計價等等，支援雙平台。</span></p><p><img src="pupucar.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p><a href='https://itunes.apple.com/us/app/pupucar-%E9%A7%95%E9%A7%9B%E7%89%88/id1359006962?mt=8&amp;ign-mpt=uo%3D4'><span>iOS版本下載連結</span></a></p><p><a href='https://play.google.com/store/apps/details?id=com.pupucar.coltcardriver'><span>Android版本下載連結</span></a></p><p>&nbsp;</p><h1><a name="三-網頁前端web---負責專案" class="md-header-anchor"></a><span>三. 網頁前端(Web) - 負責專案</span></h1><p>&nbsp;</p><h2><a name="2019年-美國矽谷新創公司bluex-trade" class="md-header-anchor"></a><span>2019年 美國矽谷新創公司BlueX Trade</span></h2><blockquote><p><span>負責大型B2B前端網站開發，使用Vue.js技術。</span></p></blockquote><p><span>BlueX is a B2B digital network for logistics freight forwarders and their SME shippers. We enable freight forwarders and their SME shippers to efficiently book, track, pay and finance ocean cargo shipments. Additionally, we aggregate their volume to provide better rates and priority shipping slots -- services typically only available to the largest shippers.</span></p><p><span>以Vue.js當作核心，設計架構大型B2B商業訂艙系統平台，改寫船運運輸業界傳統費時的流程，成功導入電子化平台系統。</span></p><p><img src="screencapture-bluextrade-2020-08-18-22_57_05.jpg" referrerpolicy="no-referrer" alt="screencapture-bluextrade-2020-08-18-22_57_05"></p><p>&nbsp;</p><h2><a name="2020年-長榮海運greenx平台" class="md-header-anchor"></a><span>2020年 長榮海運GreenX平台</span></h2><blockquote><p><span>規劃並開發大型B2B商業訂艙系統網站，與長榮海運集團合作建置。</span></p></blockquote><p><span>以BlueX架構為基礎，重新改寫Vue.js並架構新的B2B商業訂艙網站，介接第三方金流系統。長榮海運攜手美國矽谷新創公司BlueX Trade，推出GreenX電商平台，這個平台可以提供線上詢價、訂艙及付款的功能，讓客戶能夠上網查詢是否符合本身的需求，讓客戶出貨時有更多的選擇。除了海運作業相關的報價、訂艙之外， GreenX未來也將為客戶提供運費融資、貨運保險、海關申報、拖車運輸及倉儲管理等延伸性服務，透過貿易媒合，提供一站式物流供應鏈的解決方案，滿足客戶在海運流程中的相關需求。</span></p><p><img src="screencapture-greenxtrade-2020-08-18-22_51_57.jpg" referrerpolicy="no-referrer" alt="screencapture-greenxtrade-2020-08-18-22_51_57"></p><p><span>相關報導：</span></p><p><a href='https://www.evergreen-marine.com/tw/tuf1/jsp/TUF1_News.jsp?newsType=G1&amp;newsId=NEWS2020022700004757&amp;lang=zh-TW'><span>長榮海運GreenX平台</span></a></p><p><a href='https://money.udn.com/money/story/5612/4374761'><span>長榮海GreenX平台 訂艙便利</span></a></p><p><a href='https://meet.bnext.com.tw/articles/view/46568'><span>矽谷新創 BlueX Trade 看好台灣完善海運生態，攜手長榮海運打造「海運版Agoda」！</span></a></p><p>&nbsp;</p><h2><a name="2016年-像素地牢---繁體中文版android" class="md-header-anchor"></a><span>2016年 像素地牢 - 繁體中文版(Android)</span></h2><blockquote><p><span>開發於桃園老家，自願替廣大中文玩家改版的免費遊戲。</span></p></blockquote><p><span>首先我完全免費替繁體中文玩家改版像素地牢，推出完全繁體中文化版本，並且完成上架。原本有加入內購希望贊助，不過我很快就拿掉了，當作失業紀念。</span></p><p><span>期間受到很多中國朋友的關注和支持，讓我備感意外。</span></p><p><img src="pixels_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"></p><p><a href='https://play.google.com/store/apps/details?id=com.kurtyu.pd&amp;hl=zh_TW'><span>Android版本下載連結</span></a></p><p>&nbsp;</p><h2><a name="2016年-line-sticker---not-a-house-lizard" class="md-header-anchor"></a><span>2016年 LINE Sticker - Not a House Lizard</span></h2><blockquote><p><span>任職於桃園家，個人製作設計的LINE貼圖，已上架。</span></p></blockquote><p><span>上架LINE貼圖一直是我很想做的事，可惜沒有繪圖板，忙於上班沒有時間，也沒有靈感，總是沒辦法完成。感謝回桃園家有足夠的時候讓我去設計並製作，這是我第一組貼圖，第二組貼圖也正在設計中，是個很有意思的小樂趣。</span></p><p><img src="sticker_1.jpg" referrerpolicy="no-referrer" alt="Screenshot"><span> </span></p><p><span>LINE貼圖下載連結</span></p><p><a href='http://line.me/S/sticker/1373987'><span>不是變色龍 - Not a House Lizard</span></a></p><p>&nbsp;</p><h2><a name="2018年-line-sticker---飯粒君" class="md-header-anchor"></a><span>2018年 LINE Sticker - 飯粒君</span></h2><blockquote><p><span>任職於桃園家，個人製作設計的LINE貼圖，已上架。</span></p></blockquote><p><span>第二組貼圖還是在2018年完成了。</span></p><p><img src="screencapture-creator-line-me-my-gTx1WFj8cct8ge5z-sticker-1037553-preview-2020-08-18-23_06_59.jpg" referrerpolicy="no-referrer" alt="screencapture-creator-line-me-my-gTx1WFj8cct8ge5z-sticker-1037553-preview-2020-08-18-23_06_59"></p><p><span>LINE貼圖下載連結</span></p><p><a href='https://line.me/S/sticker/6078761'><span>LINE Sticker - 飯粒君</span></a></p><p>&nbsp;</p></div>
+</body>
 </html>

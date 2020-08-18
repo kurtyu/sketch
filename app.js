@@ -42,25 +42,16 @@ DotBrush.prototype.render = function(points, x, y) {
 // FlowerBrush
 function FlowerBrush () {
   Brush.call(this, 'Flower', ['#000000'])
-  this.createFurBall = function (x, y) {
+  this.drawFlower = function (x, y) {
     let inc = TWO_PI / 12
+    const size = random(4, 8)
     for (let i = 0; i < TWO_PI; i += inc) {
       let vx = sin(i)
       let vy = cos(i)
-      const size = random(4, 6)
-      // stroke(30, random(0, 1))
       const rgbColor = hexToRgb(random(this.palette))
-      stroke(rgbColor.r, rgbColor.g, rgbColor.b, random(0, 1))
+      stroke(rgbColor.r, rgbColor.g, rgbColor.b, random(0.1, 0.5))
       line(x, y, x + vx * size, y + vy * size)
     }
-  }
-  this.createFurBallFlower = function (x, y, vx, vy) {
-    const tx = x + vx * random(5, 10)
-    const ty = y - vy * random(5, 10)
-    const rgbColor = hexToRgb(random(this.palette))
-    stroke(rgbColor.r, rgbColor.g, rgbColor.b, random(0, 1))
-    line(x, y, tx, ty)
-    this.createFurBall(tx, ty)
   }
 }
 FlowerBrush.prototype = Object.create(Brush.prototype)
@@ -72,15 +63,40 @@ FlowerBrush.prototype.render = function(points, x, y) {
       const dy = point.y - y
       const d = dx * dx + dy * dy
       if (d < 50) {
-        if (index > 0) {
-          // // console.log(point.x +' x ' +point.y)
-          const vector = point.copy().sub(points[index - 1])
-          const vectorNormal = vector.normalize()
-          this.createFurBallFlower(point.x, point.y, vectorNormal.y, vectorNormal.x)
-          // const cx = (point.x + points[index - 1].x)/2
-          // const cy = (point.y + points[index - 1].y)/2
-          // this.createFurBallFlower(cx, cy, vectorNormal.y, vectorNormal.x)
-        }
+        this.drawFlower(point.x, point.y)
+      }
+    })
+  }
+  this.count++
+}
+
+// Circle Brush
+function CircleBrush () {
+  Brush.call(this, 'Circle', ['#000000'])
+  this.drawCircle = function (x,  y) {
+    const count = random(1, 8)
+    for (let i = 0; i < count; i ++) {
+      let vx = sin(i)
+      let vy = cos(i)
+      const size = random(1, 6)
+      const rgbColor = hexToRgb(random(this.palette))
+      // strokeWeight(random(1, 2))
+      stroke(rgbColor.r, rgbColor.g, rgbColor.b, random(0.1, 0.5))
+      circle(x, y, i * size)
+    }
+  }
+}
+CircleBrush.prototype = Object.create(Brush.prototype)
+CircleBrush.prototype.constructor = CircleBrush
+CircleBrush.prototype.render = function(points, x, y){
+  if (this.count % 11 === 0) {
+    noFill()
+    points.forEach((point, index) => {
+      const dx = point.x - x
+      const dy = point.y - y
+      const d = dx * dx + dy * dy
+      if (d < 50) {
+        this.drawCircle(point.x, point.y)
       }
     })
   }
@@ -116,7 +132,6 @@ LinkBrush.prototype.render = function(points, x, y) {
   this.count++
 }
 
-
 // App
 function App () {
   this.backgroundColor = '#FCFCF8'
@@ -128,6 +143,7 @@ function App () {
   this.linkBrush = new LinkBrush()
   this.dotBrush = new DotBrush()
   this.flowerBrush = new FlowerBrush()
+  this.circleBrush = new CircleBrush()
   this.attributes = []
   this.palettes = []
   this.toolbarX = 0
@@ -144,6 +160,7 @@ function App () {
     this.createPencilBrush(4)
     this.createScratchButton(5)
     this.createFlowerBrush(6)
+    this.createCircleBrush(7)
 
     this.createPalette(0, 'PAL1', ['#000000'])
     this.createPalette(1, 'PAL2', ['#92140C', '#000000', '#BE7C4D'])
@@ -155,9 +172,9 @@ function App () {
     this.addAttribute('BLACK', 1, '2B', { interval: 2 })
     this.addAttribute('BLACK', 2, '3B', { interval: 1 })
 
-    this.addAttribute('HARD', 3, '1H', { presure: 0.6 }, true)
-    this.addAttribute('HARD', 4, '2H', { presure: 0.4 })
-    this.addAttribute('HARD', 5, '3H', { presure: 0.2 })
+    this.addAttribute('HARD', 3, '1H', { presure: 1 }, true)
+    this.addAttribute('HARD', 4, '2H', { presure: 0.5 })
+    this.addAttribute('HARD', 5, '3H', { presure: 0.1 })
 
     this.addAttribute('SIZE', 6, 'S', { size: 500 })
     this.addAttribute('SIZE', 7, 'M', { size: 2000 }, true)
@@ -213,6 +230,14 @@ function App () {
     const button = this.createMainButtonn(index, 'Flower')
     button.mousePressed(() => {
       this.brushName = 'flower'
+      this.blendMode = MULTIPLY
+    })
+  }
+
+  this.createCircleBrush = (index) => {
+    const button = this.createMainButtonn(index, 'Circle')
+    button.mousePressed(() => {
+      this.brushName = 'circle'
       this.blendMode = MULTIPLY
     })
   }
@@ -277,6 +302,7 @@ function App () {
       this.linkBrush.setAttributes({ blendMode: MULTIPLY, palette })
       this.dotBrush.setAttributes({ blendMode: MULTIPLY, palette })
       this.flowerBrush.setAttributes({ blendMode: MULTIPLY, palette })
+      this.circleBrush.setAttributes({ blendMode: MULTIPLY, palette })
     })
     this.palettes.push(button)
   }
@@ -294,6 +320,9 @@ App.prototype.draw = function () {
   if (mouseIsPressed) {
     push()
     switch (this.brushName) {
+      case 'circle':
+        this.circleBrush.render(this.points, mouseX, mouseY)
+        break
       case 'flower':
         this.flowerBrush.render(this.points, mouseX, mouseY)
         break;

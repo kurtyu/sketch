@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tutorial 1</title>
+</head>
+<script>
+    function deleteIt() {
+        var label = document.getElementById("label");
+        label.parentNode.removeChild(label);
+    }
+    function createIt() {
+        var pElement = document.createElement("p");
+        pElement.setAttribute("id", "label");
+        var node = document.createTextNode("Kurt 好帥");
+        pElement.appendChild(node);
+
+        var root = document.getElementById("text");
+        root.appendChild(pElement);
+    }
+</script>
+
+<body>
+
+    <div id="root" style="margin:0 auto;; text-align:center; width:600px; height:600px; border:1px solid #FF0000;">
+        <div id="text" style="margin:150px 150px; text-align:center; width:300px; height:300px; border:1px solid #0000FF;">
+            Hello World
+        </div>
+    </div>
+
+    <button type="button" onclick="createIt()">按鈕(1)</button>
+    <button type="button" onclick="deleteIt()">按鈕(2)</button>
+
+</body>
+
+</html>
